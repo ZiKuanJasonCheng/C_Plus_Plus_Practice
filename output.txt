@@ -1,4 +1,0 @@
-Write something about it.
-Go through the next line.
-You can append contents to the bottom of the file.
-That's it.
