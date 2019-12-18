@@ -1,0 +1,3 @@
+The stream variable will also become "false" if you try to read past the end of the file.
+Note that when this happens, it means that the previous input operation did not succeed and did not produce any valid data to be processed.
+For example, a program that processes all the lines in a file might have the following form
