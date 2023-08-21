@@ -12,35 +12,21 @@ class Solution {
 public:
     int maxProfit(vector<int>& prices) {
         /*
-            Because Leetcode does not allow O(n^2) solution to this problem, we have to find another faster solution.
-            This solution costs only O(n) time complexity.
+            Although the following solution is correct, its time complexity is O(n^2), which will cause excess of memory limitation.
             There is only one correct maximal profit. However, there may be more than one possibilities of buy day and sell day.
         */
 
         int curMax = 0;  // Used to keep current maximal profit. The lowest profit is 0 as default.
-        int buy_day = 0;  // Used to keep current buy day
-        int sell_day = 1;  // Used to keep current sell day
-
-        for (int i=1; i < prices.size(); i++) {  // Iterate over all days to find a new buy day and sell day
-            if (prices[i] > prices[buy_day]) {  // If price of current (i-th) day is higher than our expected buy day, this day may become a new sell day
-                if (prices[i] - prices[buy_day] > curMax) {  // If new profit is higher than our current maximal profit, we update our profit and sell day
-                    sell_day = i;
-                    curMax = prices[i] - prices[buy_day];
+        for (int i=0; i < prices.size()-1; i++) {  // Iterate over all possible buy days
+            for (int j=i+1; j < prices.size(); j++) {  // Iterate over all possible sell days
+                if (prices[j] - prices[i] > curMax) {  // If new profit is higher than our current maximal profit, we update our profit
+                    curMax = prices[j] - prices[i];
                 }
-            }
-            else {  // prices[i] <= prices[buy_day]
-                // Because the price of current (i-th) day is less than our expected buy day, 
-                // it's better to update our expected buy day to current (i-th) day
-                buy_day = i;
             }
         }
 
-        // Let's print an answer as well as buy day and sell day
-        cout << "Maximal profit: " << curMax << ", buy_day: " << buy_day << ", sell_day: " << sell_day << endl;
-
         return curMax;
     }
-
 };
 
 int main() {
