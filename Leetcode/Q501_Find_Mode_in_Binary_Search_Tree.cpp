@@ -84,6 +84,8 @@ int main() {
     t1->right = new TreeNode(2);
     t1 = t1->right;
     t1->left = new TreeNode(2);
+    // Or we can initialize t1 easier:
+    // TreeNode *t1 = new TreeNode(1, new TreeNode(nullptr, new TreeNode(2, new TreeNode(2, nullptr))));
     // Answer: [2]
     vector<int> t1_result = solution->findMode(t1);
     for(int i=0; i < t1_result.size(); i++) 
