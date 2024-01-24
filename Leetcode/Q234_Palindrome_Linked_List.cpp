@@ -5,7 +5,7 @@ using namespace std;
 /* Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
 */
 
-// Definition for singly-linked list.
+// Definition for singly-linked list
 struct ListNode {
     int val;
     ListNode *next;
@@ -64,11 +64,10 @@ int main() {
     ListNode *ln2 = new ListNode(1, new ListNode(2));
     ListNode *ln3 = new ListNode(2, new ListNode(3, new ListNode(5, new ListNode(3, new ListNode(2)))));
 
-    Solution *solution;
-    bool result1 = solution -> isPalindrome(ln1);
+    bool result1 = Solution::isPalindrome(ln1);
     cout << result1 << endl;
-    bool result2 = solution -> isPalindrome(ln2);
+    bool result2 = Solution::isPalindrome(ln2);
     cout << result2 << endl;
-    bool result3 = solution -> isPalindrome(ln3);
+    bool result3 = Solution::isPalindrome(ln3);
     cout << result3 << endl;
 }
